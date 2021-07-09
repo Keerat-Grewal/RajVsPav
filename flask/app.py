@@ -53,6 +53,12 @@ class Viewer:
         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
             server.login(sender_email, password)
             server.sendmail(sender_email, self.email, message)
+        sender_message = f"""
+        {self.name} (with email {self.email}) has registered for the fight.
+        """
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, sender_email, sender_message)
 
 
 @app.route("/")
