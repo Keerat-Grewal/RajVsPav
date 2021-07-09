@@ -66,4 +66,4 @@ def create_new_user():
     name, reciever_email = payload["name"], payload["email"]
     viewer = Viewer(name, reciever_email)
     viewerDB.insert(viewer)
-    return "True"
+    return "You have registered"
